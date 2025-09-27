@@ -1,6 +1,8 @@
 import React from "react";
-
+import {SunIcon, MoonIcon } from "lucide-react";
+import { useTheme } from "../hooks/useTheme";
 function Navbar() {
+  const { isDark, toggleTheme } = useTheme();
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -71,7 +73,7 @@ function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+      <button className="cursor-pointer" onClick={toggleTheme}>{isDark ? <SunIcon/> : <MoonIcon/>}</button>
       </div>
     </div>
   );
